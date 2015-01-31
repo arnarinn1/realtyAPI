@@ -16,7 +16,7 @@ class CreateRealtyProperties extends Migration
 		{
 			$table->increments('realty_propertyid');
 			$table->integer('realtyid')->unsigned()->references('realtyid')->on('realty')->index();
-			$table->integer('type_numberid')->unsigned()->references('type_number')->on('type_item');
+			$table->integer('type_numberid')->unsigned()->unique()->references('type_number')->on('type_item');
 			$table->string('value');
 
 			$table->timestamps();

@@ -12,6 +12,6 @@ class RealtorSeeder extends Seeder {
 	{
 		DB::table('realtor')->delete();
 
-		Realtor::create(array('name' => 'Remax'));
+		Realtor::create(array('name' => 'Remax fasteignasala', 'image_url' => "url"));
 	}
 }

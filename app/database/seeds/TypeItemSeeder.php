@@ -14,5 +14,11 @@ class TypeItemSeeder extends Seeder {
 
 		TypeItem::create(array('type_itemid' => '10', 
 							   'type_name' => 'Herbergi'));
+
+		TypeItem::create(array('type_itemid' => '20', 
+							   'type_name' => 'Baðherbergi'));
+
+		TypeItem::create(array('type_itemid' => '30', 
+							   'type_name' => 'Bílskúr'));
 	}
 }

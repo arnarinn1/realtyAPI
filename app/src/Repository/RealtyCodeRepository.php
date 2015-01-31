@@ -19,4 +19,10 @@ class RealtyCodeRepository implements I\IRealtyCodeRepository
   {
     return RealtyCode::create($input);
   }
+
+  public function Delete($id)
+  {
+    $realtyCode = $this->Find($id);
+    $realtyCode->delete();
+  }
 }

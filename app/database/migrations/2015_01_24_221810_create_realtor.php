@@ -16,7 +16,7 @@ class CreateRealtor extends Migration
 		{
 			$table->increments('realtorid');
 			$table->string('name', 50)->unique();
-			$table->integer('realty_imageid')->unsigned()->references('imageid')->on('realty_image')->nullable();
+			$table->string('image_url')->nullable();
 
 			$table->timestamps();
 		});

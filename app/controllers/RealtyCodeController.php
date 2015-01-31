@@ -33,6 +33,11 @@ class RealtyCodeController extends BaseController
         return Response::json($realtyCode);
     }
 
+    public function DeleteRealtyCode($id)
+    {
+        $this->realtyCode->Delete($id);
+    }
+
     #Region Private
 
     private function UpdateRealtyCode()

@@ -35,6 +35,8 @@ Route::get('type_item/{typeItem}', 'TypeItemController@QueryTypeItem');
 
 Route::get('realty/', 'RealtyController@QueryRealties');
 Route::get('realty/{realtyid}', 'RealtyController@QueryRealty');
+Route::post('realty/', 'RealtyController@SaveRealty');
+Route::delete('realty/{id}', 'RealtyController@DeleteRealty');
 
 
 /*
@@ -46,7 +48,7 @@ Route::get('realty/{realtyid}', 'RealtyController@QueryRealty');
 Route::get('realty_code/', 'RealtyCodeController@QueryRealtyCodes');
 Route::get('realty_code/{realtyCodeId}', 'RealtyCodeController@QueryRealtyCode');
 Route::post('realty_code/', 'RealtyCodeController@SaveRealtyCode');
-
+Route::delete('realty_code/{id}', 'RealtyCodeController@DeleteRealtyCode');
 
 
 /*

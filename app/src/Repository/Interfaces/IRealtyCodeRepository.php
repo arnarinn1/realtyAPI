@@ -7,4 +7,6 @@ interface IRealtyCodeRepository
   public function Find($id);
  
   public function Create($input);
+
+  public function Delete($id);
 }

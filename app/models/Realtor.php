@@ -28,15 +28,5 @@ class Realtor extends Eloquent
 	 *
 	 * @var string
 	 */
-	protected $fillable = array('name', 'realtor_image');
-
-	/**
-	 * Relations
-	 * - hasMany("className", foreignKey, localKey)
-	 */
-
-	public function realtyImage()
-	{
-		return $this->belongsTo('RealtyImage', 'realty_imageid', 'realty_imageid');
-	}
+	protected $fillable = array('name', 'image_url');
 }

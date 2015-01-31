@@ -7,14 +7,12 @@ class RealtorRepository implements I\IRealtorRepository
 { 
   public function All()
   {
-    return Realtor::with('realtyImage')
-                  ->get();
+    return Realtor::all();
   }
  
   public function Find($id)
   {
-    return Realtor::with('realtyImage')
-                  ->find($id);
+    return Realtor::find($id);
   }
  
   public function Create($input)

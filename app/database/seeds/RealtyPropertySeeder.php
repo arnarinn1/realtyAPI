@@ -14,6 +14,14 @@ class RealtyPropertySeeder extends Seeder
 
 		RealtyProperty::create(array('realtyid' => '1', 
 								     'type_numberid' => '10',
-								     'value' => '3'));
+								     'value' => '5'));
+
+		RealtyProperty::create(array('realtyid' => '1', 
+								     'type_numberid' => '20',
+								     'value' => '2'));
+
+		RealtyProperty::create(array('realtyid' => '1', 
+								     'type_numberid' => '30',
+								     'value' => 'Já'));
   	}
 }
