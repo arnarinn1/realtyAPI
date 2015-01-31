@@ -4,6 +4,8 @@ use src\Repository\Interfaces\IRealtyRepository as Realty;
 use src\Repository\Interfaces\IRealtyImageRepository as RealtyImage;
 use src\Repository\Interfaces\IRealtyPropertyRepository as RealtyProperty;
 
+use src\Contracts\RealtyFilter;
+
 class RealtyController extends BaseController 
 {
 	public function __construct(Realty $realty, RealtyImage $realtyImage, RealtyProperty $realtyProperty)
@@ -20,7 +22,9 @@ class RealtyController extends BaseController
 
     public function Query()
     {
-        return Response::json($this->realty->Query());
+        $filter = new RealtyFilter(Input::get('lower_price'), Input::get('upper_price'), Input::get('realtorId'));
+
+        return Response::json($this->realty->Query($filter));
     }
 
     public function QueryRealty($realtyId)

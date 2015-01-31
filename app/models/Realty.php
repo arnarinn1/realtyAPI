@@ -78,6 +78,8 @@ class Realty extends Eloquent
 
     public function scopeByRealtor($query, $realtorId)
     {
+    	if ($realtorId == null) return;
+
     	return $query->whereHas('realtor', function($q) use($realtorId)
 			    {
 			      $q->where('realtorid', $realtorId);
@@ -86,6 +88,8 @@ class Realty extends Eloquent
 
     public function scopeByRealtyCode($query, $realtyCodes)
     {
+    	if ($realtyCodes == null) return;
+
     	return $query->whereHas('realtyCode', function($q) use($realtyCodes)
 			    {
 			      $q->whereIn('realty_codeid', $realtyCodes);

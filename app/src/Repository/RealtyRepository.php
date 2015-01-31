@@ -11,18 +11,18 @@ class RealtyRepository implements I\IRealtyRepository
                  ->get();
   }
 
-  public function Query()
+  public function Query($filter)
   {
-    $query = Realty::with('realtyCode', 'realtor', 'images', 'properties');
+    $query = Realty::with('realtyCode', 'realtor', 'images', 'properties.typeItem');
 
     //Always filter by price
-    $query->ByPrice(1, 62000000);
+    $query->ByPrice($filter->lowerPrice(), $filter->upperPrice());
 
     //Possibly filter by the realtor
-    $query->ByRealtor(1);
+    $query->ByRealtor($filter->realtorId());
 
     //Possible filter the realtyCode
-    $query->ByRealtyCode(array(1,2));
+    $query->ByRealtyCode(array(2));
 
     //Possibly filter by properties
     $query->ByProperties(array(array('type_numberid' => 10, 'value' => '5')));
