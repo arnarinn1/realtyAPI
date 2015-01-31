@@ -66,4 +66,41 @@ class Realty extends Eloquent
 	{
 		return $this->hasMany('RealtyImage', 'realtyid');
 	}
+
+	/**
+	* Scope Specifications
+	*/
+
+	public function scopeByPrice($query, $lower, $upper)
+    {
+        return $query->where('price', '>=', $lower)->where('price', '<=', $upper);
+    }
+
+    public function scopeByRealtor($query, $realtorId)
+    {
+    	return $query->whereHas('realtor', function($q) use($realtorId)
+			    {
+			      $q->where('realtorid', $realtorId);
+			    });
+    }
+
+    public function scopeByRealtyCode($query, $realtyCodes)
+    {
+    	return $query->whereHas('realtyCode', function($q) use($realtyCodes)
+			    {
+			      $q->whereIn('realty_codeid', $realtyCodes);
+			    });
+    }
+
+    public function scopeByProperties($query, $properties)
+    {
+		foreach ($properties as $property)
+		{
+			$query->whereHas('properties', function($q) use($property)
+			{
+				$q->where('type_numberid', $property['type_numberid'])
+			      ->where('value', $property['value']);
+			});
+		}
+    }
 }

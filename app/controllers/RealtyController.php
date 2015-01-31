@@ -18,6 +18,11 @@ class RealtyController extends BaseController
 		return Response::json($this->realty->All());
     }
 
+    public function Query()
+    {
+        return Response::json($this->realty->Query());
+    }
+
     public function QueryRealty($realtyId)
     {
     	$realty = $this->realty->Find($realtyId);

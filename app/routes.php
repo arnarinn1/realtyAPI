@@ -34,6 +34,7 @@ Route::get('type_item/{typeItem}', 'TypeItemController@QueryTypeItem');
 */
 
 Route::get('realty/', 'RealtyController@QueryRealties');
+Route::get('realtyQuery/', 'RealtyController@Query');
 Route::get('realty/{realtyid}', 'RealtyController@QueryRealty');
 Route::post('realty/', 'RealtyController@SaveRealty');
 Route::delete('realty/{id}', 'RealtyController@DeleteRealty');
@@ -79,4 +80,4 @@ Route::get('realty_image/{realtyImageId}', 'RealtyImageController@QueryRealtyIma
 
 Route::get('realty_property/', 'RealtyPropertyController@QueryRealtyProperties');
 Route::get('realty_property/{propertyId}', 'RealtyPropertyController@QueryRealtyProperty');
-
+Route::put('realty_property/{propertyId}', 'RealtyPropertyController@UpdateRealtyProperty');

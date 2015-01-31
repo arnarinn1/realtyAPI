@@ -3,6 +3,8 @@
 interface IRealtyRepository 
 {   
   public function All();
+
+  public function Query();
  
   public function Find($id);
  

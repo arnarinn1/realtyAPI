@@ -19,4 +19,14 @@ class RealtyPropertyController extends BaseController
     	$property = $this->realtyProperty->Find($realtyPropertyId);
     	return Response::json($property);
     }
+
+    public function UpdateRealtyProperty($realtyPropertyId)
+    {
+        $property = $this->realtyProperty->Find($realtyPropertyId);
+
+        if (Input::has('value'))
+            $property->value = Input::get('value');
+
+        $property->Save();
+    }
 }
