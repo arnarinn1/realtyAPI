@@ -54,7 +54,7 @@ class Realty extends Eloquent
 
 	/**
 	 * Relations
-	 * - belongsTo("className", localKey, foreignKey)
+	 * - hasMany("className", foreignKey)
 	 */
 
 	public function properties()

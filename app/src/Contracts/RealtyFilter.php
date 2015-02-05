@@ -23,18 +23,28 @@ class RealtyFilter
      */
     private $realtorId;
 
+    /**
+     * Ids of realty codes
+     *
+     * @param string
+     */
+    private $realtyCodeIds;
+
 
     /**
      * Create a new Realty Filter
      *
      * @param string $lowerPrice
      * @param string $upperPrice
+     * @param string $realtorId
+     * @param string $realtyCodeIds
      */
-    public function __construct($lowerPrice, $upperPrice, $realtorId)
+    public function __construct($lowerPrice, $upperPrice, $realtorId, $realtyCodeIds)
     {
         $this->lowerPrice = $lowerPrice;
         $this->upperPrice = $upperPrice;
         $this->realtorId = $realtorId;
+        $this->realtyCodeIds = $realtyCodeIds;
     }
 
     /**
@@ -71,5 +81,19 @@ class RealtyFilter
     public function realtorId()
     {
         return $this->realtorId;
+    }
+
+    /**
+    * Return the realtorId
+    *
+    * @return array
+    */
+    public function realtyCodeIds()
+    {
+        $ids = $this->realtyCodeIds;
+
+        return $ids != null
+            ? explode('-', $ids)
+            : array(); 
     }
 }

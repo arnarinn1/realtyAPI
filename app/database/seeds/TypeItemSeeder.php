@@ -1,8 +1,8 @@
 <?php
 
 
-class TypeItemSeeder extends Seeder {
-
+class TypeItemSeeder extends Seeder 
+{
 	/**
 	 * Run the database seeds.
 	 *
@@ -20,5 +20,17 @@ class TypeItemSeeder extends Seeder {
 
 		TypeItem::create(array('type_itemid' => '30', 
 							   'type_name' => 'Bílskúr'));
+
+		TypeItem::create(array('type_itemid' => '40', 
+							   'type_name' => 'Lyfta'));
+
+		TypeItem::create(array('type_itemid' => '50', 
+							   'type_name' => 'Fermetrar'));
+
+		TypeItem::create(array('type_itemid' => '60', 
+							   'type_name' => 'Tegund'));
+
+		TypeItem::create(array('type_itemid' => '70', 
+							   'type_name' => 'Inngangur'));
 	}
 }

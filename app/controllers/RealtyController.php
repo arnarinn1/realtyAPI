@@ -22,8 +22,11 @@ class RealtyController extends BaseController
 
     public function Query()
     {
-        $filter = new RealtyFilter(Input::get('lower_price'), Input::get('upper_price'), Input::get('realtorId'));
-
+        $filter = new RealtyFilter(Input::get('lower_price'), 
+                                   Input::get('upper_price'), 
+                                   Input::get('realtor'), 
+                                   Input::get('realtyCodes'));
+        
         return Response::json($this->realty->Query($filter));
     }
 
@@ -41,7 +44,7 @@ class RealtyController extends BaseController
     public function SaveRealty()
     {
         //Assert Some stöff
-
+        
         $id = Input::get('realtyid');
 
         if ($id != null)
@@ -83,6 +86,9 @@ class RealtyController extends BaseController
 
         if (Input::has('description'))
             $clientRealty->description = Input::get('description');
+
+        if (Input::has('realty_codeid'))
+            $clientRealty->realty_codeid = Input::get('realty_codeid');
 
         $clientRealty->Save();
 

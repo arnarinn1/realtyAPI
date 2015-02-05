@@ -22,10 +22,10 @@ class RealtyRepository implements I\IRealtyRepository
     $query->ByRealtor($filter->realtorId());
 
     //Possible filter the realtyCode
-    $query->ByRealtyCode(array(2));
+    $query->ByRealtyCode($filter->realtyCodeIds());
 
     //Possibly filter by properties
-    $query->ByProperties(array(array('type_numberid' => 10, 'value' => '5')));
+    //$query->ByProperties(array(array('type_numberid' => 10, 'value' => '5')));
     
     return $query->get();
   }
