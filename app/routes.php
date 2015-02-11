@@ -70,6 +70,7 @@ Route::get('realtor/{realtorId}', 'RealtorController@QueryRealtor');
 
 Route::get('realty_image/', 'RealtyImageController@QueryRealtyImages');
 Route::get('realty_image/{realtyImageId}', 'RealtyImageController@QueryRealtyImage');
+Route::post('realty_image/', 'RealtyImageController@AddImages');
 
 
 /*

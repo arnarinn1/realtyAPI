@@ -19,4 +19,14 @@ class RealtyImageController extends BaseController
     	$image = $this->realtyImage->Find($realtyImageId);
     	return Response::json($image);
     }
+
+    public function AddImages()
+    {
+        $images = Input::all();
+
+        foreach($images as $image)
+        {
+            $this->realtyImage->Create($image);
+        }
+    }
 }
