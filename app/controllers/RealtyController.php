@@ -25,7 +25,10 @@ class RealtyController extends BaseController
         $filter = new RealtyFilter(Input::get('lower_price'), 
                                    Input::get('upper_price'), 
                                    Input::get('realtor'), 
-                                   Input::get('realtyCodes'));
+                                   Input::get('realtyCodes'),
+                                   Input::get('realty_types'),
+                                   Input::get('lower_room'),
+                                   Input::get('upper_room'));
         
         return Response::json($this->realty->Query($filter));
     }

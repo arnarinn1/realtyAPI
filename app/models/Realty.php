@@ -92,8 +92,31 @@ class Realty extends Eloquent
 
     	return $query->whereHas('realtyCode', function($q) use($realtyCodes)
 			    {
-			      $q->whereIn('realty_codeid', $realtyCodes);
+			      $q->whereIn('code', $realtyCodes);
 			    });
+    }
+
+    public function scopeByRealtyTypes($query, $types)
+    {
+    	if ($types == null) return;
+
+		$query->whereHas('properties', function($q) use($types)
+		{
+			$q->where('type_numberid', 60)
+		      ->whereIn('value', $types);
+		});
+    }
+
+    public function scopeByRoomNumbers($query, $lowerRoomNr, $upperRoomNr)
+    {
+    	if ($lowerRoomNr == null || $upperRoomNr == null) return;
+
+		$query->whereHas('properties', function($q) use($lowerRoomNr, $upperRoomNr)
+		{
+			$q->where('type_numberid', 10)
+		      ->where('value', '>=', $lowerRoomNr)
+		      ->where('value', '<=', $upperRoomNr);
+		});
     }
 
     public function scopeByProperties($query, $properties)

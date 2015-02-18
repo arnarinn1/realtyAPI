@@ -21,12 +21,15 @@ class RealtyRepository implements I\IRealtyRepository
     //Possibly filter by the realtor
     $query->ByRealtor($filter->realtorId());
 
-    //Possible filter the realtyCode
+    //Possibly filter the realtyCode
     $query->ByRealtyCode($filter->realtyCodeIds());
 
-    //Possibly filter by properties
-    //$query->ByProperties(array(array('type_numberid' => 10, 'value' => '5')));
-    
+    //Possibly filter by realtyTypes
+    $query->ByRealtyTypes($filter->realtyTypes());
+
+    //Possibly filter by room numbers
+    $query->ByRoomNumbers($filter->lowerRoomNumber(), $filter->upperRoomNumber());
+
     return $query->get();
   }
  
