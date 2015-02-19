@@ -28,5 +28,5 @@ class Realtor extends Eloquent
 	 *
 	 * @var string
 	 */
-	protected $fillable = array('name', 'image_url');
+	protected $fillable = array('name', 'image_url', 'phone_number', 'email');
 }
