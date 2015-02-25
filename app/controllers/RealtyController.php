@@ -93,6 +93,12 @@ class RealtyController extends BaseController
         if (Input::has('realty_codeid'))
             $clientRealty->realty_codeid = Input::get('realty_codeid');
 
+        if (Input::has('longitude'))
+            $clientRealty->longitude = Input::get('longitude');
+
+        if (Input::has('latitude'))
+            $clientRealty->latitude = Input::get('latitude');
+
         $clientRealty->Save();
 
         return $this->GetRealty($realtyId);

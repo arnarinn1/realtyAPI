@@ -35,7 +35,9 @@ class Realty extends Eloquent
 								'fire_insurance_value', 
 								'location', 
 								'description', 
-								'realtorid');
+								'realtorid',
+								'latitude',
+								'longitude');
 
 	/**
 	 * Relations
